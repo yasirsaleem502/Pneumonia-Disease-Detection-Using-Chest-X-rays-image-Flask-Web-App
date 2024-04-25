@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Model Deployment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Image Model Deployment</h1>
+    <form method="post" action="/predict" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">Predict</button>
+    </form>
+    <div>
+        {% if prediction_text %}
+            <p>{{ prediction_text }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
