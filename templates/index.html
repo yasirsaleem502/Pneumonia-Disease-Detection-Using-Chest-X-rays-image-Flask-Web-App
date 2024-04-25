@@ -5,17 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Model Deployment</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
-    <h1>Image Model Deployment</h1>
-    <form method="post" action="/predict" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <button type="submit">Predict</button>
-    </form>
-    <div>
-        {% if prediction_text %}
-            <p>{{ prediction_text }}</p>
-        {% endif %}
-    </div>
+<body class="container cyan lighten-3">
+    <center>
+        <h3 class="cyan-text accent-2 text-darken-2"><b><u>Pneumonia Disease Detection System</u></h3></b>
+            <form method="post" action="/predict" class="input-field" enctype="multipart/form-data">
+                <div class="">
+                    
+                    <div class="container"></div>
+                        <input type="file" class="btn-large white-text input-field"  name="file">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                          </button>
+                    </div>
+                    
+                </div>
+            </form>
+            <div>
+                {% if prediction_text %}
+                    <div class="container">
+                        <h5 class="blue-text text-darken-2 cyan lighten-2">{{ prediction_text }}</h5>
+                    </div>
+                    
+                {% endif %}
+            </div>
+    </center>
 </body>
 </html>

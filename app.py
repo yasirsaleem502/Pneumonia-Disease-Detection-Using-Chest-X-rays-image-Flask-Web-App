@@ -26,8 +26,11 @@ def predict():
 
     prediction = model.predict(img_array)
     predicted_class = np.argmax(prediction)
-
-    return render_template('index.html', prediction_text=f'Predicted Class: {predicted_class}')
+    if predicted_class == 0:
+        predicted_class = "Normal"
+    else:
+        predicted_class = "Pneumonia Detect"
+    return render_template('index.html', prediction_text=f'{predicted_class}')
 
 if __name__ == '__main__':
     app.run(debug=True)
