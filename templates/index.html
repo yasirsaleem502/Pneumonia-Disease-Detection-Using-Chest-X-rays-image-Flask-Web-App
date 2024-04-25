@@ -10,30 +10,33 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
 </head>
-<body class="container cyan lighten-3">
-    <center>
-        <h3 class="cyan-text accent-2 text-darken-2"><b><u>Pneumonia Disease Detection System</u></h3></b>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo center"><i class="material-icons">local_hospital</i>Pneumonia Disease Detection System</a>
+        </div>
+    </nav>
+    <center class="container">
             <form method="post" action="/predict" class="input-field" enctype="multipart/form-data">
-                <div class="">
-                    
+                <div>
                     <div class="container"></div>
-                        <input type="file" class="btn-large white-text input-field"  name="file">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <input type="file" class="btn-large white-text red lighten-2"  name="file">
+                        <button class="btn-large red lighten-2 waves-effect waves-light" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
-                          </button>
+                        </button>
                     </div>
                     
                 </div>
             </form>
-            <div>
-                {% if prediction_text %}
-                    <div class="container">
-                        <h5 class="blue-text text-darken-2 cyan lighten-2">{{ prediction_text }}</h5>
-                    </div>
-                    
-                {% endif %}
-            </div>
+            <nav>
+                <div class="brand-logo center">
+                    {% if prediction_text %}
+                    <b>{{ prediction_text }}</b>
+                    {% endif %}
+                </div>
+            </nav>
     </center>
 </body>
 </html>
