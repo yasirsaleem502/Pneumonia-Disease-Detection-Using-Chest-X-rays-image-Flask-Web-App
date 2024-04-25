@@ -13,27 +13,37 @@
     
 </head>
 <body>
+    <div>
     <nav>
         <div class="nav-wrapper">
           <a href="/" class="brand-logo center"><i class="material-icons">local_hospital</i>Pneumonia Disease Detection System</a>
         </div>
-    </nav>
+    </nav></br>
     <center class="container">
-            <form method="post" action="/predict" class="input-field" enctype="multipart/form-data">
-                <div>
-                    <div class="container"></div>
-                        <input type="file" class="btn-large white-text red lighten-2"  name="file">
-                        <button class="btn-large red lighten-2 waves-effect waves-light" type="submit" name="action">Submit
+            <div class = "row">
+                <form class = "col s12" method="post" action="/predict" enctype="multipart/form-data">
+                   <div class = "row container">
+                      <h5 class="white-text">Input Image</h5>
+                      <div class = "file-field input-field">
+                         <div class = "btn red lighten-2">
+                            <span>Browse</span>
+                            <input type = "file" name="file"/>
+                         </div>
+                         <div class = "file-path-wrapper">
+                            <input class = "file-path validate" type = "text"
+                               placeholder = "Upload file" />
+                         </div>
+                         <button class="btn-large red lighten-2 waves-effect waves-light pulse right" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
                         </button>
-                    </div>
-                    
-                </div>
-            </form>
+                      </div>
+                   </div>
+                </form>       
+             </div>
             <nav>
                 <div class="brand-logo center">
                     {% if prediction_text %}
-                    <b>{{ prediction_text }}</b>
+                    <b >{{ prediction_text }}</b>
                     {% endif %}
                 </div>
             </nav>
