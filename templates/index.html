@@ -1,52 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Model Deployment</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-     <!-- Compiled and minified CSS -->
+    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+
 </head>
+
 <body>
     <div>
-    <nav>
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo center"><i class="material-icons">local_hospital</i>Pneumonia Disease Detection System</a>
-        </div>
-    </nav></br>
-    <center class="container">
-            <div class = "row">
-                <form class = "col s12" method="post" action="/predict" enctype="multipart/form-data">
-                   <div class = "row container">
-                      <h5 class="white-text">Input Image</h5>
-                      <div class = "file-field input-field">
-                         <div class = "btn red lighten-2">
-                            <span>Browse</span>
-                            <input type = "file" name="file"/>
-                         </div>
-                         <div class = "file-path-wrapper">
-                            <input class = "file-path validate" type = "text"
-                               placeholder = "Upload file" />
-                         </div>
-                         <button class="btn-large red lighten-2 waves-effect waves-light pulse right" type="submit" name="action">Submit
-                            <i class="material-icons right">send</i>
-                        </button>
-                      </div>
-                   </div>
-                </form>       
-             </div>
-            <nav>
-                <div class="brand-logo center">
+        <nav>
+            <div class="nav-wrapper z-depth-3">
+                <a href="/" class="brand-logo flow-text center container">Pneumonia Disease Detection System</a>
+            </div>
+        </nav></br>
+        <center class="container">
+            <div class="row">
+                <form class="col s12" method="post" action="/predict" enctype="multipart/form-data">
+                    <div class="row container">
+                        <h5 class="white-text red lighten-2 z-depth-3 card-panel large">Input Chest X-Ray Image</h5>
+                        <div class="file-field input-field">
+                            <div class="btn-large red lighten-2 z-depth-5">
+                                <span>Browse</span>
+                                <input type="file" name="file" />
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate white-text" type="text" placeholder="Upload Image" />
+                            </div>
+                            <button class="btn-large red lighten-2 waves-effect waves-light pulse right z-depth-5"
+                                type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="container">
+                <div class="brand-logo center card red lighten-2 pulse z-depth-5 white-text">
                     {% if prediction_text %}
-                    <b >{{ prediction_text }}</b>
+                    <h3>{{ prediction_text }}</h3>
                     {% endif %}
                 </div>
-            </nav>
-    </center>
+            </div>
+        </center>
 </body>
+<div class="container center flow-text white-text  purple darken-3" id="rounded" style="opacity:0.9;">
+    Pneumonia is a serious lung infection that inflames and fills the air sacs, or alveoli, of one or both lungs with
+    fluid or pus. It can be caused by bacteria, viruses, or fungi. Symptoms can range from mild to severe, depending on
+    the type of germ, age, and overall health.
+</div>
+
 </html>
